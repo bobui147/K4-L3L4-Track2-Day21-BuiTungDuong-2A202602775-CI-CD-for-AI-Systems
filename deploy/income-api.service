@@ -1,0 +1,16 @@
+[Unit]
+Description=Income Model Inference Server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=Admin
+WorkingDirectory=/home/Admin
+Environment="ARTIFACT_BUCKET=income-lab-2a202602775-lab21"
+ExecStart=/home/Admin/income-venv/bin/python /home/Admin/src/serve.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
